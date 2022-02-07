@@ -1,0 +1,32 @@
+spring:
+  profiles:
+    active: dev
+  application:
+    name: friday-service
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    nacos:
+      config:
+        file-extension: yaml
+        extension-configs:
+          - data-id: friday-service.yaml
+            group: ${spring.profiles}
+            refresh: true
+          - data-id: common.yaml
+            group: ${spring.profiles}
+            refresh: true
+          - data-id: common-service.yaml
+            group: ${spring.profiles}
+            refresh: true
+---
+#本地开发环境配置
+spring:
+  profiles: dev
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+        service: friday-service
+      config:
+        server-addr: localhost:8848
