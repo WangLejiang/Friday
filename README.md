@@ -1,5 +1,6 @@
 # Friday
 SpringBoot SpringCloudAlibaba Demo
+
 JDK 17
 
 spring-boot 2.4.13
